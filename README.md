@@ -1,13 +1,20 @@
-# Neon Rain 2019
+# Neon Rain: 2019 & 2049
 
 A retro-futuristic, rain-soaked neo-noir you can walk around in. It's a pixel-art side-scrolling
 narrative game that runs entirely in the browser as a static site. You don't need a server,
 a build step or any asset files. The art, music and sound are all generated in code.
 
-You play a "Runner", a detective pulled out of retirement to track four runaway synthetic humans
-through a Los Angeles that never stops raining. There are 12 chapters, 9 locations, branching
-dialogue choices, an empathy-test interrogation, a voice-style photo-enhancer puzzle, quick-time
-chases, 9 hidden secrets and two endings.
+The game comes in two parts. Pick one on the title screen (← →, or keys 1 and 2):
+
+| | **Part I · 2019** | **Part II · 2049** |
+| --- | --- | --- |
+| Story | A retired Runner hunts four runaway synthetics through a city that never stops raining. | Thirty years later, Seven, a newer-model synthetic Runner, digs up a buried box. What's inside shouldn't be possible. |
+| Art | 320×180 chunky pixels, hot neon, CRT scanlines, wet-street reflections | 480×270 finer pixels, dithered skies, brutalist megastructures, fog, snow, dust and holograms, rim-lit silhouettes, colour grading, film grain, letterbox bars |
+| Score | Warm analog-synth pads, brass swells, glassy bells | Distorted low-brass swells, sub-bass drones, choir pads, a fragile memory piano; wind, surf and snow ambience |
+| Mechanics | Empathy-test interrogation, ESPER photo enhancer, quick-time chases | Spinner flight mini-game between locations, timed baseline test, DNA archive matching, Lumen (a holographic companion who follows you; press ▼ to talk) |
+| Size | 12 chapters, 9 locations, 9 secrets, 2 endings | 14 chapters, 11 locations, 9 secrets (one needs Part I's true ending) |
+
+Each part saves separately.
 
 > The game is an homage to early-'80s tech-noir films. The story beats echo the genre, but all
 > characters, names, dialogue and art are original to this project.
@@ -20,6 +27,8 @@ chases, 9 hidden secrets and two endings.
 | Enter door, fly spinner | ↑ / W | ▲ | D-pad up |
 | Talk, examine, advance text | E / Space / Enter | **A** | A / Cross |
 | Menu (case file, evidence, secrets) | Esc / I / X | **B** | B / Start |
+| Talk to your companion (Part II) | ↓ / S | ▼ | D-pad down |
+| Spinner flight (Part II) | ↑ ↓ steer · X autopilot | ▲ ▼ · **B** | D-pad · B |
 | Choose a dialogue option | ↑ ↓ then E | tap the option | D-pad then A |
 
 Toggles in the top bar: **MUSIC** (M), **SFX** (N), **CRT** scanlines (C) and the on-screen **PAD**.
@@ -37,6 +46,14 @@ In the ESPER photo analyzer, type commands such as `ENHANCE`, `PAN LEFT`, `ENHAN
 - The piano remembers something after Iris visits.
 - A famous game from 1851 is waiting to be finished.
 - The arcade door has a code scratched into it.
+
+**Part II**
+- Something small grows at the foot of the dead tree.
+- The Castellan archive keeps an old recording.
+- An old man in the records room still folds paper.
+- Take Lumen somewhere she's never been: the roof.
+- In the dead city: the bees, the piano, and the dog.
+- Finish Part I's true ending first, then finish Part II.
 </details>
 
 ## Project layout
@@ -45,12 +62,17 @@ In the ESPER photo analyzer, type commands such as `ENHANCE`, `PAN LEFT`, `ENHAN
 public/               ← everything that gets deployed (static assets)
   index.html          page shell, HUD, dialogue box, menus, touch pad
   css/style.css       layout, CRT filter, responsive/touch styles
-  js/main.js          game engine: loop, camera, dialogue, menus, save/load
-  js/scenes.js        the world: 9 scenes, cast, story scripts, secrets
-  js/art.js           procedural pixel art: skylines, neon, rain, characters
-  js/audio.js         Web Audio synth: generative score + sound effects
+  js/main.js          shared engine: loop, camera, dialogue, menus, saves, part switching
+  js/scenes.js        Part I world: 9 scenes, cast, story scripts, secrets
+  js/art.js           Part I procedural pixel art: skylines, neon, rain, characters
+  js/audio.js         Web Audio synth: both generative scores, ambience, sound effects
   js/input.js         keyboard / touch / gamepad input
-  js/esper.js         the ESPER photo-enhancement puzzle
+  js/esper.js         the ESPER photo-enhancement puzzle (Part I)
+  js/part1.js         Part I definition (resolution, art hooks, score)
+  js/part2/index.js   Part II definition: post-FX, flight travel, Lumen companion
+  js/part2/art.js     Part II renderer: dithered skies, megastructures, fog, figures, grain
+  js/part2/scenes.js  Part II world, cast and story
+  js/part2/modes.js   Part II mechanics: spinner flight, baseline test, DNA archive
   _headers            security + cache headers (applied by Cloudflare)
   404.html            themed not-found page
 wrangler.jsonc        Cloudflare Workers static-assets config
