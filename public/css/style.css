@@ -132,6 +132,8 @@ body.retro #game { filter: grayscale(1) sepia(1) saturate(3.2) hue-rotate(-12deg
 #line { margin: 0; font-size: max(16px, 2.2cqw); line-height: 1.15; min-height: 2.3em; }
 #line:empty { display: none; }
 #dialogue.narr #line { color: #cfc6e8; font-style: italic; }
+#timer { height: 4px; margin-top: .8cqw; background: var(--line); }
+#timer i { display: block; height: 100%; width: calc(var(--left, 1) * 100%); background: var(--pink); box-shadow: 0 0 8px var(--pink); }
 #next { position: absolute; right: 1.6cqw; bottom: 1cqw; color: var(--amber); font-size: max(12px, 1.8cqw); animation: blink 1s steps(2) infinite; }
 #next.off { visibility: hidden; }
 @keyframes blink { 50% { opacity: 0; } }
@@ -189,6 +191,13 @@ h1 {
   text-shadow: 0 0 10px #ff2e88, 0 0 30px #ff2e8888, 3px 3px 0 #38e1ff55;
 }
 h1 small { display: block; margin-top: 1.6cqw; font-size: max(7px, 1.4cqw); color: var(--amber); letter-spacing: .5cqw; text-shadow: 0 0 8px #f5b14a; }
+.parts { position: relative; display: flex; gap: 1cqw; margin-bottom: 2.4cqw; }
+.part-btn {
+  font-family: var(--pixel); font-size: max(7px, 1.2cqw); letter-spacing: 1px; color: var(--muted);
+  background: rgba(0,0,0,.35); border: 1px solid var(--line); padding: .9cqw 1.8cqw; display: flex; flex-direction: column; gap: .5cqw; align-items: center;
+}
+.part-btn span { font-family: var(--term); font-size: max(14px, 2cqw); letter-spacing: 3px; }
+.part-btn[aria-pressed="true"] { color: var(--amber); border-color: var(--amber); box-shadow: 0 0 12px #f5b14a44; }
 .crawl { max-width: 62ch; font-size: max(15px, 2.3cqw); line-height: 1.15; color: var(--text); margin: 0 0 2.6cqw; }
 .crawl em { color: var(--cyan); font-style: normal; }
 .hint { font-size: max(13px, 1.8cqw); color: var(--muted); margin: 2.4cqw 0 0; }
@@ -252,3 +261,52 @@ body.pad-on #pad { display: flex; }
   #crt, .title-sky, #prompt, #next { animation: none; }
 }
 .noscript { padding: 16px; color: var(--amber); }
+
+/* =================================================================
+   PART II — 2049 theme: cold, minimal, cinematic
+   ================================================================= */
+body.p2 {
+  --ink: #050607; --ink-2: #0c0f11; --panel: rgba(8, 11, 13, 0.78); --line: #2a3236;
+  --text: #dfe3e0; --muted: #85908f; --amber: #ff8a3d; --pink: #ff8a3d; --cyan: #7fd6d9; --green: #a8e0c8;
+  --pixel: "Chakra Petch", ui-sans-serif, sans-serif; --term: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 17px;
+}
+body.p2 #topbar { background: #050607; }
+body.p2 .brand { letter-spacing: 6px; font-weight: 300; font-size: 12px; }
+body.p2 #screen { box-shadow: 0 0 60px #ff8a3d18; border-color: #1b2124; }
+body.p2 #crt {
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0) 55%, rgba(0,0,0,0.5) 100%);
+  animation: none;
+}
+body.p2 #location, body.p2 #objective { font-weight: 300; letter-spacing: .35cqw; text-shadow: none; font-size: max(9px, 1.25cqw); }
+body.p2 #location { color: var(--text); }
+body.p2 #objective { color: var(--amber); }
+body.p2 #hud { top: 1.3cqw; }
+body.p2 #dialogue {
+  top: auto; bottom: 6.5cqw; left: 12cqw; right: 12cqw; min-height: 0; border: 0; border-left: 2px solid var(--amber);
+  background: linear-gradient(90deg, rgba(5,7,8,.86), rgba(5,7,8,.6)); box-shadow: none; backdrop-filter: blur(2px);
+}
+body.p2 #dialogue.narr { border-left-color: var(--muted); }
+body.p2 #speaker { font-weight: 500; letter-spacing: .4cqw; font-size: max(9px, 1.2cqw); color: var(--amber); }
+body.p2 #line { font-size: max(14px, 1.75cqw); font-weight: 300; line-height: 1.35; min-height: 0; }
+body.p2 #dialogue.narr #line { color: #c9cfcc; font-style: normal; opacity: .9; }
+body.p2 #choices button { font-size: max(13px, 1.65cqw); font-weight: 300; line-height: 1.35; }
+body.p2 #portrait { border: 0; width: 6.4cqw; height: 6.4cqw; }
+body.p2 #next { color: var(--muted); }
+body.p2 #prompt { background: transparent; color: var(--text); box-shadow: none; border: 1px solid #ffffff55; font-weight: 300; letter-spacing: .3cqw; bottom: 5.8cqw; animation: none; font-size: max(9px, 1.2cqw); }
+body.p2 #toast { color: var(--amber); border-color: #5a3a24; font-weight: 300; letter-spacing: .2cqw; font-size: max(9px, 1.25cqw); }
+body.p2 #card { color: var(--text); text-shadow: none; font-family: var(--pixel); font-weight: 300; letter-spacing: .8cqw; font-size: max(15px, 2.6cqw); }
+body.p2 #title { background: radial-gradient(ellipse at 50% 110%, #5a2a10 0%, #1a1310 45%, #050607 100%); }
+body.p2 .title-sky { background: radial-gradient(circle, rgba(255,255,255,.5) 0 1px, transparent 1.5px) 0 0 / 40px 40px, radial-gradient(circle, rgba(255,255,255,.35) 0 1px, transparent 1.5px) 20px 13px / 53px 53px; animation: snow 9s linear infinite; opacity: .35; }
+@keyframes snow { to { background-position: -40px 400px, -10px 500px; } }
+body.p2 h1 { font-weight: 300; color: var(--text); letter-spacing: 1.4cqw; text-shadow: 0 0 30px #ff8a3d55; font-size: max(22px, 5.4cqw); }
+body.p2 h1 small { color: var(--amber); text-shadow: none; font-weight: 500; letter-spacing: .9cqw; }
+body.p2 .crawl { font-weight: 300; font-size: max(13px, 1.7cqw); line-height: 1.5; color: #c9cfcc; }
+body.p2 .crawl em { color: var(--amber); }
+body.p2 .btn { font-weight: 500; letter-spacing: .4cqw; box-shadow: none; }
+body.p2 .part-btn { font-family: "Press Start 2P", monospace; }
+body.p2 .part-btn span { font-family: "VT323", monospace; }
+body.p2 #menu h2, body.p2 #menu h3 { font-weight: 300; letter-spacing: .4cqw; }
+body.p2 #menu ul { font-size: max(12px, 1.7cqw); line-height: 1.4; }
+body.p2 #timer i { background: var(--amber); box-shadow: none; }
+body.p2 .k { font-family: "Press Start 2P", monospace; }

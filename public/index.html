@@ -11,7 +11,7 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Chakra+Petch:wght@300;500&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
@@ -45,6 +45,7 @@
             <div id="speaker"></div>
             <p id="line"></p>
             <ol id="choices" hidden></ol>
+            <div id="timer" hidden><i></i></div>
           </div>
           <div id="next" aria-hidden="true">▼</div>
         </section>
@@ -65,6 +66,10 @@
 
         <section id="title" class="panel">
           <div class="title-sky" aria-hidden="true"></div>
+          <div class="parts" role="group" aria-label="Choose a part">
+            <button class="part-btn" data-part="p1" aria-pressed="true">PART I<span>2019</span></button>
+            <button class="part-btn" data-part="p2" aria-pressed="false">PART II<span>2049</span></button>
+          </div>
           <h1>NEON RAIN<small>LOS ANGELES · NOVEMBER 2019</small></h1>
           <p class="crawl">Early in the 21st century the Arcturus Corporation perfected the synthetic human — stronger, faster and as clever as their makers.
             Built for off-world labour, forbidden on Earth. Four of them have come home.<br><br>Special detectives called <em>Runners</em> are sent to find them.</p>
@@ -72,7 +77,7 @@
             <button class="btn" id="btn-new">NEW CASE</button>
             <button class="btn" id="btn-continue" hidden>CONTINUE</button>
           </div>
-          <p class="hint">Keyboard: ← → move · ↑ enter · E / Space talk · I items · Esc menu<br>Touch: turn on <b>PAD</b></p>
+          <p class="hint">Title: ← → pick a part · ↑ ↓ new/continue · E start<br>Play: ← → move · ↑ enter · ▼ companion · E / Space talk · Esc menu · Touch: turn on <b>PAD</b></p>
         </section>
 
         <section id="menu" class="panel" hidden>
@@ -91,7 +96,8 @@
           </div>
           <div class="title-actions">
             <button class="btn" id="btn-resume">RESUME</button>
-            <button class="btn ghost" id="btn-restart">RESTART CASE</button>
+            <button class="btn ghost" id="btn-restart">RESTART PART</button>
+            <button class="btn ghost" id="btn-title">TITLE SCREEN</button>
           </div>
         </section>
       </div>

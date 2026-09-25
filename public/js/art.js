@@ -217,6 +217,7 @@ export class Rain {
 
 // mirror the scene above the floor onto wet pavement
 export function reflect(ctx, floorY, strength = 0.28) {
+  const W = ctx.canvas.width, H = ctx.canvas.height;
   const h = H - floorY;
   if (h <= 0) return;
   ctx.save();
