@@ -1,0 +1,17 @@
+{
+  // Cloudflare Workers — static assets only (no Worker script = no billable invocations).
+  // Asset requests are free and unlimited on the Workers Free plan.
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "neon-rain",
+  "compatibility_date": "2026-09-22",
+  "assets": {
+    "directory": "./public",
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash"
+  },
+  // Each non-production branch gets its own preview URL when Workers Builds is connected.
+  "preview_urls": true,
+  "workers_dev": true
+  // To serve on your subdomain, uncomment and edit (the zone must be on your Cloudflare account):
+  // ,"routes": [{ "pattern": "game.example.com", "custom_domain": true }]
+}
