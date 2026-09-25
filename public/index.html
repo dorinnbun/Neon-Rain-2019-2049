@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <title>Neon Rain 2019</title>
+  <meta name="description" content="A retro-futuristic neo-noir pixel adventure. Walk the rain-soaked streets of 2019, track down four runaway synthetics and decide what makes someone human.">
+  <meta name="theme-color" content="#07060d">
+  <meta property="og:title" content="Neon Rain 2019">
+  <meta property="og:description" content="A rain-soaked retro-futuristic pixel noir you can walk around in.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div id="app">
+    <header id="topbar" aria-label="Game settings">
+      <span class="brand">NEON&nbsp;RAIN <b>2019</b></span>
+      <div class="toggles">
+        <button class="tgl" id="tgl-music" aria-pressed="true" title="Music (M)">♫<span>MUSIC</span></button>
+        <button class="tgl" id="tgl-sfx" aria-pressed="true" title="Sound effects (N)">◖<span>SFX</span></button>
+        <button class="tgl" id="tgl-crt" aria-pressed="true" title="CRT filter (C)">▤<span>CRT</span></button>
+        <button class="tgl" id="tgl-pad" aria-pressed="false" title="On-screen controls">✥<span>PAD</span></button>
+        <button class="tgl" id="btn-menu" title="Menu (Esc)">☰<span>MENU</span></button>
+      </div>
+    </header>
+
+    <main id="stage">
+      <div id="screen">
+        <canvas id="game" width="320" height="180" aria-label="Game view"></canvas>
+        <div id="crt" aria-hidden="true"></div>
+
+        <div id="hud" aria-live="polite">
+          <div id="location"></div>
+          <div id="objective"></div>
+        </div>
+        <div id="prompt" hidden></div>
+        <div id="toast" hidden></div>
+
+        <section id="dialogue" hidden aria-live="polite">
+          <div id="portrait" aria-hidden="true"><canvas width="32" height="32"></canvas></div>
+          <div class="body">
+            <div id="speaker"></div>
+            <p id="line"></p>
+            <ol id="choices" hidden></ol>
+          </div>
+          <div id="next" aria-hidden="true">▼</div>
+        </section>
+
+        <section id="esper" hidden aria-label="Photo analysis terminal">
+          <canvas id="esper-view" width="160" height="120"></canvas>
+          <div class="esper-side">
+            <div class="esper-title">ESPER-9 IMAGE ANALYZER</div>
+            <div id="esper-log"></div>
+            <form id="esper-form" autocomplete="off">
+              <span>&gt;</span><input id="esper-input" maxlength="32" spellcheck="false" aria-label="Analyzer command">
+            </form>
+            <div class="esper-help"></div>
+          </div>
+        </section>
+
+        <div id="card" aria-live="polite"></div>
+
+        <section id="title" class="panel">
+          <div class="title-sky" aria-hidden="true"></div>
+          <h1>NEON RAIN<small>LOS ANGELES · NOVEMBER 2019</small></h1>
+          <p class="crawl">Early in the 21st century the Arcturus Corporation perfected the synthetic human — stronger, faster and as clever as their makers.
+            Built for off-world labour, forbidden on Earth. Four of them have come home.<br><br>Special detectives called <em>Runners</em> are sent to find them.</p>
+          <div class="title-actions">
+            <button class="btn" id="btn-new">NEW CASE</button>
+            <button class="btn" id="btn-continue" hidden>CONTINUE</button>
+          </div>
+          <p class="hint">Keyboard: ← → move · ↑ enter · E / Space talk · I items · Esc menu<br>Touch: turn on <b>PAD</b></p>
+        </section>
+
+        <section id="menu" class="panel" hidden>
+          <h2>PAUSED</h2>
+          <div class="cols">
+            <div>
+              <h3>CASE FILE</h3>
+              <ul id="casefile"></ul>
+            </div>
+            <div>
+              <h3>EVIDENCE</h3>
+              <ul id="inventory"></ul>
+              <h3>SECRETS <span id="egg-count"></span></h3>
+              <ul id="eggs"></ul>
+            </div>
+          </div>
+          <div class="title-actions">
+            <button class="btn" id="btn-resume">RESUME</button>
+            <button class="btn ghost" id="btn-restart">RESTART CASE</button>
+          </div>
+        </section>
+      </div>
+
+      <div id="pad" aria-label="On-screen controls">
+        <div class="dpad">
+          <button data-key="up" class="k up" aria-label="Enter / up">▲</button>
+          <button data-key="left" class="k left" aria-label="Walk left">◀</button>
+          <button data-key="right" class="k right" aria-label="Walk right">▶</button>
+          <button data-key="down" class="k down" aria-label="Down">▼</button>
+        </div>
+        <div class="ab">
+          <button data-key="b" class="k b" aria-label="Menu / back">B</button>
+          <button data-key="a" class="k a" aria-label="Talk / interact">A</button>
+        </div>
+      </div>
+    </main>
+    <noscript><p class="noscript">This world needs JavaScript to boot.</p></noscript>
+  </div>
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>

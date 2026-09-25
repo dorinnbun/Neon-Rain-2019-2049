@@ -1,0 +1,15 @@
+{
+  "name": "neon-rain",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A retro-futuristic neo-noir exploration game, served as static assets on Cloudflare Workers.",
+  "scripts": {
+    "dev": "wrangler dev",
+    "preview": "wrangler versions upload",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.140.0"
+  }
+}
