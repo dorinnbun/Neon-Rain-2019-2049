@@ -112,7 +112,7 @@ A pure static game fits either product. Workers is the better long-term home at 
    - Production branch: `main`
 3. Under **Settings → Build → Branch control**, enable **Preview builds** for non-production
    branches. Every push to a branch other than `main` then gets a preview URL like
-   `https://<branch>-neon-rain.<your-account>.workers.dev`. Cloudflare also posts that URL on
+   `https://<branch>-side-quest-blade-runner.<your-account>.workers.dev`. Cloudflare also posts that URL on
    the pull request.
 4. **Settings → Domains & Routes → Add → Custom Domain**, then enter your subdomain
    (for example `game.yourdomain.com`). Your domain's DNS must be on Cloudflare. Cloudflare

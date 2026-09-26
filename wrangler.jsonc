@@ -2,7 +2,7 @@
   // Cloudflare Workers — static assets only (no Worker script = no billable invocations).
   // Asset requests are free and unlimited on the Workers Free plan.
   "$schema": "./node_modules/wrangler/config-schema.json",
-  "name": "neon-rain",
+  "name": "side-quest-blade-runner",
   "compatibility_date": "2026-09-22",
   "assets": {
     "directory": "./public",
